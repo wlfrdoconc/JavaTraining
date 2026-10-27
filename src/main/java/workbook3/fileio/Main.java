@@ -1,12 +1,11 @@
 package workbook3.fileio;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Main {
 
@@ -47,10 +46,16 @@ public class Main {
         LocalDate today = LocalDate.now();
         System.out.println("The date is "  + today);
 
+
+        // Better Approach with Formatting
+        // DateTimeFormatter fmt = DateTimeFormatter.ofPattern("E, MMM dd, yyyy HH:mm:ss", Locale.ENGLISH);
+        // String filename = "myReasons-on-" + currentDate.format(fmt).toLowerCase() + ".txt";
+
         // Try/catch
         try {
+            // CHALLENGE: Specify the date/time format you want to use
             // opens the file to append text
-            FileWriter writer = new FileWriter("myReasons " + today);
+            FileWriter writer = new FileWriter("myreasons-on-" + today.getDayOfWeek() + "-" + today.getDayOfMonth() + "-" + today.getMonth() + "-" + today.getYear() + ".txt");
 
             writer.write("Three reasons why I want to become a software developer:\n");
             writer.write("1. I want to build tangible things that can enrich the lives of people\n");
@@ -74,6 +79,14 @@ public class Main {
         // Date and Time
         LocalDateTime dateTime = LocalDateTime.now();
         System.out.println(dateTime);
+
+        // 4. Making a folder with a placeholder image file path in it
+        DateTimeFormatter fileFormat = DateTimeFormatter.ofPattern("yyyy-MM");
+        File folder = new File(today.format(fileFormat));
+
+        // folder.mkdir()
+        File image = new File(folder, "zoom_screenshot.png");
+        System.out.println(image.getPath());
     }
 
 }
