@@ -12,34 +12,45 @@ public class BedtimeStories {
         // Scanner to let users choose which quotes they would like to pick
         Scanner read = new Scanner(System.in);
 
-        try {
+        // Keeps the programming running until a story is selected
+        boolean isValid = false;
 
-            printMenu();
+        while (!isValid) {
+            try {
+                printMenu();
 
-            String fileName = fileSwitch(read);
+                String fileName = fileSwitch(read);
 
-            // create a FileReader object connected to the File
-            FileReader fileReader = new FileReader(fileName);
+                // If the choice was invalid, return to the menu
+                if (fileName.isEmpty()) {
+                    continue;
+                }
 
-            // create a BufferedReader to manage input stream
-            BufferedReader bufReader = new BufferedReader(fileReader);
+                // create a FileReader object connected to the File
+                FileReader fileReader = new FileReader(fileName);
 
-            String input;
+                // create a BufferedReader to manage input stream
+                BufferedReader bufReader = new BufferedReader(fileReader);
 
-            // read until there is no more data
-            while ((input = bufReader.readLine()) != null) {
-                System.out.println(input);
+                String input;
+
+                // read until there is no more data
+                while ((input = bufReader.readLine()) != null) {
+                    System.out.println(input);
+                }
+
+                // close the stream and release the resources
+                bufReader.close();
+                isValid = true;
+
             }
-
-            // close the stream and release the resources
-            bufReader.close();
-
-        }
-        catch (IOException e) {
-            // display stack trace if there was an error
-            e.printStackTrace();
+            catch (IOException e) {
+                System.out.println("Story not found! Please try again.\n");
+            }
         }
 
+        System.out.println("\nThank you for reading!");
+        read.close();
     }
 
     // Method to display the menu
@@ -49,10 +60,19 @@ public class BedtimeStories {
     }
 
     // Method to switch between the different files
-    public static String fileSwitch(Scanner read) {
+    public static String fileSwitch(Scanner read) throws IOException {
         System.out.println();
         System.out.print("Enter your choice: ");
+
+        // Check if the user entered a number
+        if (!read.hasNextInt()) {
+            read.nextLine();
+            System.out.println("Invalid choice. Please enter a number.\n");
+            return "";
+        }
+
         int userChoice = read.nextInt();
+        read.nextLine();
 
         // Create an empty String called fileName to switch between the different files
         String fileName = "";
@@ -64,10 +84,9 @@ public class BedtimeStories {
         } else if (userChoice == 3) {
             fileName = "mary_had_a_little_lamb.txt";
         } else {
-            System.out.println("Invalid choice!");
+            System.out.println("Invalid choice.\n");
         }
 
         return fileName;
-
     }
 }
