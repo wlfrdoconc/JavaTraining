@@ -78,11 +78,11 @@ public class BedtimeStories {
         String fileName = "";
 
         if (userChoice == 1) {
-            fileName = "goldilocks.txt";
+            fileName = "src/main/resources/workbook3/exercise2/goldilocks.txt"; // we refer to the resource path with goldilocks.txt
         } else if (userChoice == 2) {
-            fileName = "hansel_and_gretel.txt";
+            fileName = "src/main/resources/workbook3/exercise2/hansel_and_gretel.txt"; // etc, etc
         } else if (userChoice == 3) {
-            fileName = "mary_had_a_little_lamb.txt";
+            fileName = "src/main/resources/workbook3/exercise2/mary_had_a_little_lamb.txt";
         } else {
             System.out.println("Invalid choice.\n");
         }
