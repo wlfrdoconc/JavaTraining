@@ -1,4 +1,4 @@
-package workbook3.exercise3;
+package workbook3.exercise3and4;
 
 public class Employee {
     private int employeeId;
