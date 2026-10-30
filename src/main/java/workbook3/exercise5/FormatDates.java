@@ -1,6 +1,7 @@
 package workbook3.exercise5;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class FormatDates {
@@ -65,5 +66,19 @@ public class FormatDates {
         DateTimeFormatter format4 = DateTimeFormatter.ofPattern("EEEE, MMM dd, yyyy");
         String formattedDate4 = todayDate.format(format4);
         System.out.println(formattedDate4);
+
+        System.out.println();
+
+        // 5. CHALLENGE (your local time zone)
+        // 8:13 on 29-Oct-2026
+
+        LocalTime currentTime = LocalTime.now();
+
+        System.out.println("==== Format 5 ====");
+
+        // Specify the date/time format
+        DateTimeFormatter format5 = DateTimeFormatter.ofPattern("h:mm 'on' dd-MMM-yyyy");
+        String formattedDate5 = todayDate.format(format5);
+        System.out.println(formattedDate5);
     }
 }
