@@ -2,7 +2,7 @@ package workbook4.hoteloperations;
 
 // Clerk extends (inherits) from Person
 
-public class Clerk extends Person {
+public class Employee extends Person {
 
     // Clerk specific attributes
     private int employeeId;
@@ -14,7 +14,6 @@ public class Clerk extends Person {
     // Constructors
 
     // Getters and Setters
-
 
 
 

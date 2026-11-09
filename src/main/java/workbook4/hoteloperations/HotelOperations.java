@@ -11,5 +11,7 @@ public class HotelOperations {
         // 3. Create methods for their actions
         // 4. Don't need an actual running program
 
+
+        // TEST COMMIT to store current code in separate branch
     }
 }
