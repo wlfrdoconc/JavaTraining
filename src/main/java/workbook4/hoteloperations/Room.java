@@ -29,7 +29,7 @@ public class Room {
         this.numberOfBeds = numberOfBeds;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
