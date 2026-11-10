@@ -1,4 +1,3 @@
-
 package workbook4.hoteloperations;
 
 // Employee extends (inherits) from Person
