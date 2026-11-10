@@ -25,11 +25,17 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
-    // Overloaded Parameterized Constructor
+    // Overloaded Parameterized Constructor 1
     public Person(String name, int personId) {
         this.name = name;
         this.personId = personId;
     }
+
+    // Overloaded constructor name only
+    public Person(String name) {
+        this.name = name;
+    }
+
 
     // Getters and Setters
     public String getName() {
